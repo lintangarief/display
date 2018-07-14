@@ -1,8 +1,9 @@
-server '178.128.209.181', user: 'root', roles: %w{app db web}, primary: true
+server '<server_ip>', user: 'ubuntu', roles: %w{app db web}, primary: true
 
-set :branch, 'master'
-set :domain, 'indisdisplay.com'
-set :deploy_to, '/var/www/indisdisplay'
+set :branch, '<branch_name>'
+set :domain, '<domain_name>'
+set :deploy_to, '/var/www/<domain_name>'
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

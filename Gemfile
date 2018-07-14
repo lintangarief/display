@@ -21,31 +21,31 @@ gem 'carrierwave'
 gem 'pry'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
-gem 'puma'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'hub', :require=>nil
   gem 'rails_layout'
   gem 'spring-commands-rspec'
-  gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano-rvm'
-  gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails-console'
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
 end
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
 end
-# group :production do
-#   gem 'passenger'
-# end
+group :production do
+  gem 'passenger'
+end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+
+gem 'puma'
