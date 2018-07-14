@@ -16,9 +16,9 @@ development:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: rails-devise_development
+  database: indis_development
   pool:     5
-  username: postgres
+  username: indisdisplay
   password: yakuji13
   template: template0
 
@@ -44,9 +44,9 @@ test:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: rails-devise_test
+  database: indis_test
   pool:     5
-  username: postgres
+  username: indisdisplay
   password: yakuji13
   template: template0
 
@@ -54,8 +54,8 @@ production:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: rails-devise_production
+  database: indis_production
   pool:     5
-  username: postgres
+  username: indisdisplay
   password: yakuji13
   template: template0
