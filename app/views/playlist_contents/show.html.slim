@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Playlist:
+  = @playlist_content.playlist_id
+p
+  strong Media:
+  = @playlist_content.content
+
+=> link_to 'Edit', edit_playlist_content_path(@playlist_content)
+'|
+=< link_to 'Back', playlist_contents_path

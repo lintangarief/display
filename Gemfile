@@ -15,6 +15,10 @@ gem 'high_voltage'
 gem 'pg', '~> 0.18'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'bootstrap-glyphicons'
+gem 'active_link_to'
+gem 'carrierwave'
+gem 'pry'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

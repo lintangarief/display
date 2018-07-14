@@ -1,0 +1,53 @@
+<div class="content-playlists">
+  <div class="row">
+    <div class="col-sm-6 action-bar">
+      <div class="form-group">
+      </div>
+    </div>
+    <div class="col-sm-6 action-bar">
+      <div class="form-group pull-right">
+        <%= link_to 'Add Customer',  new_customer_path,  {class: "btn btn-warning section-button"}  %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h5>Listing Customer</h5></div>
+        <div class="panel-body">
+          <div class="col-sm-12">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @customers.each do |customer| %>
+                    <tr>
+                      <td><%= customer.name %></td>
+                      <td><%= customer.phone_number %></td>
+                      <td><span class="badge badge-primary badge-pill"><%= customer.email %></span></td>
+                      <td>
+                        <a href="#" class="btn btn-info">
+                          <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a href="#" class="btn btn-info">
+                          <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+</div>

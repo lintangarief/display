@@ -1,0 +1,67 @@
+header.indis-header{
+  height: 93px;
+  .navbar-inverse{
+    height: 93px;
+    margin: 0;
+  }
+
+  .navbar-inverse{
+    border: none;
+    border-top: 3px solid #e71518;
+    box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 6px rgba(59,64,69,0.1);
+    background-color: #fafafb;
+    transition: box-shadow cubic-bezier(.165, .84, .44, 1) .25s;
+    box-sizing: border-box;
+    .navbar-header{
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  button.navbar-toggle {
+      background: orange;
+      border: none;
+  }
+  .navbar-brand.title-indis{
+    font-size: 20px;
+    color: #e71518;
+    font-weight: bolder;
+  }
+  .navbar-brand.logo-indis img{
+    width: 110px;
+    position: relative;
+    top: -15px;
+  }
+  .navbar-collapse{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: calc(100% - 75px);
+    background: #fafafa;
+    margin-left: 75px;
+    ul.navbar-nav{
+      float: right;
+      li{
+        padding-left: 0px;
+      }
+    }
+  }
+  .navbar-collapse.in{
+    margin-top: 0px;
+    margin-bottom: 20px;
+    width: 100%;
+    background: white;
+    float: none;
+    margin: 0px;
+    padding: 0px;
+  }
+  .navbar-inverse .navbar-nav > li > a{
+    font-size: 14px;
+  }
+  .navbar-inverse .navbar-nav > li > a.active{
+    background: none;
+    color: #e71518;
+    font-weight:bold;
+  }
+  .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus{
+    color: #e71518;
+  }
+}

@@ -1,0 +1,59 @@
+<div class="content-screens">
+  <div class="row">
+      <div class="col-sm-4 action-bar">
+        <div class="form-group">
+          <label class="label-select-outlet" for="select-outlet">Select Outlet : </label>
+          <%= select_tag 'outlet_id', options_for_select(@outlets.collect{ |u| [u.name, u.id] }), {:class => 'form-control', id:"select-outlet"} %>
+        </div>
+      </div>
+      <div class="col-sm-4 action-bar">
+        <div class="form-group">
+          <span class="label-select-outlet" for="select-outlet"><b>Storage : </b><i>150Mb Used / 10gb Free Space</i></span>
+        </div>
+      </div>
+      <div class="col-sm-2 action-bar">
+        <div class="form-group">
+          <span class="label-select-outlet" for="select-outlet"><b>Slot : </b><i>4 Used / 8 Slot</i></span>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h5>OUTLET NAME - ID O001</h5></div>
+        <div class="panel-body">
+          <div class="col-sm-12">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>DISPLAY</th>
+                    <th>SERIAL NUMBER</th>
+                    <th>TYPE OF DISPLAY</th>
+                    <th>EXPIRED PERIODE</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% index = 1 %>
+                  <% @screens.each do |screen| %>
+                    <tr>
+                      <td>DISPLAY <%= index %></td>
+                      <td><span class="badge badge-primary badge-pill">B001-O001-D00<%= index %></span></td>
+                      <td><%= screen.mode == 1 ? "POTRAIT" : "LANDSCAPE"%></td>
+                      <td><span class="badge badge-primary badge-pill"><%= screen.created_at %> - <%= screen.created_at %></span></td>
+                      <td>
+                        <%= link_to edit_screen_path(screen) do %>
+                          <span class="glyphicon glyphicon-pencil"></span>
+                        <% end %>
+                      </td>
+                    </tr>
+                    <% index += 1 %>
+                  <% end %>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

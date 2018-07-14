@@ -1,0 +1,154 @@
+<div>
+  <%= simple_form_for @playlist, html: {multipart: true} do |f| %>
+    <div class="form-group row">
+      <div class="col-md-6">
+        <h3 class="title-new-playlist pull-left">New Playlist</h3>
+      </div>
+      <div class="col-md-6">
+        <%= link_to 'Back to listing', playlists_path, class:"pull-right btn btn-primary btn-back" %>
+      </div>
+    </div>
+    <hr>
+    <div class="form-group row">
+      <div class="form-group col-md-6">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: "form-control", placeholder: "Playist Name" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label :playlist_type %>
+        <br>
+        <%= f.select :playlist_type, [["POTRAIT","POTRAIT"],["LANDSCAPE","LANDSCAPE"]], {}, {id:"playlist_type", class:"form-control"} %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-12">
+        <h5 for="">Choose Templates</h5>
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="form-check">
+                <%= f.label :template, "Template A", :value => 1  %>
+                <%= f.radio_button :template, 1, :checked =>true %>
+              </div>
+            </div>
+            <div class="panel-body panel-body">
+              <%= image_tag("portrait_1.jpg", size: "175x175", alt: "Edit Entry", class:"potrait-img")%>
+              <%= image_tag("landscape_1.jpg", size: "175x175", alt: "Edit Entry", class:"landscape-img")%>
+              <hr>
+              <div class="form-group">
+                <%= f.fields_for :playlist_contents do |p| %>
+                  <div class="field">
+                    <%= p.label :content, "Column 1" %><br>
+                    <%= p.file_field :content, :multiple => true, name:"playlist_contents[content][1][0][]", class: "input-type-a" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <%= f.label :template, "Template B", :value => 2  %>
+              <%= f.radio_button :template, 2 %>
+            </div>
+            <div class="panel-body panel-body">
+              <%= image_tag("portrait_2.jpg", size: "175x175", alt: "Edit Entry", class:"potrait-img")%>
+              <%= image_tag("landscape_2.jpg", size: "175x175", alt: "Edit Entry", class:"landscape-img")%>
+              <hr>
+              <%= f.fields_for :playlist_contents do |p| %>
+                <div class="form-group">
+                  <div class="field">
+                    <%= p.label :content, "Column 1"%><br>
+                    <%= p.file_field :content, :multiple => true, name:"playlist_contents[content][2][0][]", class: "input-type-b" %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="field">
+                    <%= p.label :content, "Column 2"%><br>
+                    <%= p.file_field :content, :multiple => true, name:"playlist_contents[content][2][1][]", class: "input-type-b"%>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="form-group">
+              <label for="">Image Transition</label>
+              <div class="form-check">
+                <%= f.label :transition, "15 Second", :value => 15%>
+                <%= f.radio_button :transition, 15, :checked =>true %>
+              </div>
+              <div class="form-check">
+                <%= f.label :transition, "30 Second", :value => 30  %>
+                <%= f.radio_button :transition, 30 %>
+              </div>
+              <div class="form-check">
+                <%= f.label :transition, "60 Second", :value => 60  %>
+                <%= f.radio_button :transition, 60 %>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="form-group">
+            <%= f.label :text_information %><br>
+            <%= f.text_field :text_information, class: "form-control", placeholder: "Promo, Discount, or business information" %>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <hr>
+              <label for="">Backgroud Text</label>
+              <div class="form-group">
+                <div class="form-check">
+                  <%= f.color_field :backgroud_text, class:'background-input'  %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <hr>
+              <label for="">Text Color</label>
+              <div class="form-check">
+                <%= f.color_field :color_text, class:'background-input'  %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <hr>
+            <label for="">Text Transition-duration</label>
+            <div class="form-check">
+              <div class="form-check">
+                <%= f.radio_button :speed, 5, :checked =>true %>
+                <%= f.label :speed, "1x speed", :value => 5  %>
+              </div>
+            </div>
+            <div class="form-check">
+              <%= f.radio_button :speed, 3 %>
+              <%= f.label :speed, "2x speed", :value => 3  %>
+
+            </div>
+            <div class="form-check">
+              <%= f.radio_button :speed, 1 %>
+              <%= f.label :speed, "3x speed", :value => 1  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= f.hidden_field :business_id, :value => @current_business.id %>
+    <%= f.submit class: "btn btn-primary pull-right" %>
+  <% end %>
+</div>

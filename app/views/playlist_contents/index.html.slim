@@ -1,0 +1,23 @@
+h1 Listing playlist_contents
+
+table
+  thead
+    tr
+      th Playlist
+      th Media
+      th
+      th
+      th
+
+  tbody
+    - @playlist_contents.each do |playlist_content|
+      tr
+        td = playlist_content.playlist_id
+        td = playlist_content.media
+        td = link_to 'Show', playlist_content
+        td = link_to 'Edit', edit_playlist_content_path(playlist_content)
+        td = link_to 'Destroy', playlist_content, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Playlist content', new_playlist_content_path

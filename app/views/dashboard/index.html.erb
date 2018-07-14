@@ -1,0 +1,66 @@
+<div class="content-dashboard">
+  <div class="row">
+    <div class="col-sm-12 action-bar">
+      <div class="form-group">
+        <label class="label-select-outlet" for="select-outlet">Select Outlet : </label>
+        <%= select_tag 'outlet_id', options_for_select(@outlets.collect{ |u| [u.name, u.id] }), {:class => 'form-control', id:"select-outlet"} %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h5>OUTLET NAME</h5></div>
+        <div class="panel-body">
+          <div class="col-sm-3">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Total Screen
+                <span class="badge badge-primary badge-pill"><%= @displays.length %></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Total Active Screen
+                <span class="badge badge-primary badge-pill">0</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Total Playlist
+                <span class="badge badge-primary badge-pill"><%= @total_playlist %></span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-9">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>DISPLAY</th>
+                    <th>STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @displays.each do |display| %>
+                    <tr>
+                      <td><%= display.code_display %></td>
+                      <td><%= display.is_active ? "ONLINE" : "OFFLINE" %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">TOTAL OUTLET</div>
+        <div class="panel-body panel-body-total"><%= @outlets.length %></div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">TOTAL SCREEN</div>
+        <div class="panel-body panel-body-total"><%= @displays.length%></div>
+      </div>
+    </div>
+  </div>
+</div>

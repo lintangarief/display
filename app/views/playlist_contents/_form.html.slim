@@ -1,0 +1,12 @@
+= simple_form_for(@playlist_content) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :playlist_id
+    = f.input :content
+    = f.input :row
+    = f.input :col
+
+  .form-actions
+    = f.button :submit

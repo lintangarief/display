@@ -1,0 +1,17 @@
+ul.nav.navbar-nav
+  li
+    = link_to "DASHBOARD", root_path, :class => "#{'navbar-brand ' + current_class?(root_path)}"
+  li
+    = link_to "SCREEN", screens_path, :class => "#{'navbar-brand ' + current_class?(screens_path)}"
+  li
+    = link_to "PLAYLIST", playlists_path, :class => "#{'navbar-brand ' + current_class?(playlists_path)}"
+  li
+    = link_to "SCHEDULE", root_path, :class => "#{'navbar-brand '}"
+  li
+    = link_to "CUSTOMERS", customers_path, :class => "#{'navbar-brand ' + current_class?(customers_path)}"
+  li
+    = link_to "BROADCAST", root_path, :class => "#{'navbar-brand '}"
+  li
+    = link_to "ACCOUNT SETTING", setting_path, :class => "#{'navbar-brand ' + current_class?(setting_path)}"
+  li
+    = link_to('LOGOUT', destroy_business_session_path, method: :delete, class: 'navbar-brand')

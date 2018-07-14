@@ -1,0 +1,57 @@
+<div class="content-playlists">
+  <div class="row">
+    <div class="col-sm-6 action-bar">
+      <div class="form-group">
+        <span class="label-select-outlet" for="select-outlet"><b>Storage : </b><i>678Mb Used / 10gb Free Space</i></span>
+      </div>
+    </div>
+    <div class="col-sm-6 action-bar">
+      <div class="form-group pull-right">
+        <%= link_to 'Create Playlist',  new_playlist_form_path,  {class: "btn btn-warning section-button"}  %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h5>Listing Playlist</h5></div>
+        <div class="panel-body">
+          <div class="col-sm-12">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Type Playlist</th>
+                    <th>Total File</th>
+                    <th>Created At</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @playlists.each do |playlist| %>
+                    <tr>
+                      <td><%= playlist.name %></td>
+                      <td><%= playlist.playlist_type == 1 ? "POTRAIT" : "LANDSCAPE" %></td>
+                      <td><span class="badge badge-primary badge-pill"><%= playlist.playlist_contents.length %></span></td>
+                      <td><span class="badge badge-primary badge-pill"><%= playlist.created_at %></span></td>
+                      <td><%= link_to "Preview", "/preview", class:"btn btn-default btn-xs", target: :_blank %></td>
+                      <td>
+                        <%= link_to edit_playlist_path(playlist) do %>
+                          <span class="glyphicon glyphicon-pencil"></span>
+                        <% end %>
+                        <%= link_to playlist, data: { confirm: "Are you sure for delete playlist #{playlist.name} ?" }, method: :delete  do%>
+                          <span class="glyphicon glyphicon-trash"></span>
+                        <% end %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+</div>
