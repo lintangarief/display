@@ -19,6 +19,8 @@ gem 'bootstrap-glyphicons'
 gem 'active_link_to'
 gem 'carrierwave'
 gem 'pry'
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
